@@ -1,13 +1,15 @@
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-content: space-around;
+  width: 100%;
+  max-width: 800px;
+  min-width: 480px;
+  margin: 0 auto;
   font-size: large;
+  font-family: "Poppins", sans-serif;
 }
 
 .gameInput {
   padding: 20px 0px;
+  width: 400px;
 }
 
 .myInput {
@@ -24,4 +26,9 @@ body {
 
 .resultGame {
   font-size: large;
+}
+
+.resetButton {
+  font-size: large;
+  padding: 0 10px;
 }
