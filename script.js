@@ -13,7 +13,7 @@ function checkGuess() {
     guesses.textContent = "Previous guesses: ";
   }
 
-  guesses.textContent += userGuess + " ";
+  guesses.textContent += userGuess + " "; //add previous guessed number and a space between each guess
 
   if (userGuess === randomNumber) {
     lastResult.textContent = "Congrats, you got it right!";
