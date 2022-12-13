@@ -1,2 +1,27 @@
 body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: space-around;
+  font-size: large;
+}
+
+.gameInput {
+  padding: 20px 0px;
+}
+
+.myInput {
+  width: 200px;
+  height: 21px;
+}
+
+.guessSubmit {
+  font-size: large;
+}
+.lastResult {
+  color: white;
+}
+
+.resultGame {
+  font-size: large;
 }
