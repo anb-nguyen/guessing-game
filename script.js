@@ -8,7 +8,7 @@ const guessSubmit = document.querySelector(".guessSubmit");
 let guessCount = 1;
 
 function checkGuess() {
-  const userGuess = Number(myInput.value);
+  const userGuess = Number(myInput.value); //check for valid numbers
   if (guessCount === 1) {
     guesses.textContent = "Previous guesses: ";
   }
@@ -17,7 +17,6 @@ function checkGuess() {
 
   if (userGuess === randomNumber) {
     lastResult.textContent = "Congrats, you got it right!";
-
     lastResult.style.backgroundColor = "green";
   } else {
     lastResult.textContent = "Wrong number, guess again";
