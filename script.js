@@ -5,8 +5,10 @@ const lastResult = document.querySelector(".lastResult");
 const tooHighOrLow = document.querySelector(".tooHighOrLow");
 const myInput = document.querySelector(".myInput");
 const guessSubmit = document.querySelector(".guessSubmit");
+const triesLeft = document.querySelector(".attempt");
 let guessCount = 1; // keep track of how many guesses the player have
 let resetButton;
+let attemptsNum = 0;
 
 function checkGuess() {
   const userGuess = Number(myInput.value); //check for valid numbers
@@ -16,23 +18,35 @@ function checkGuess() {
   }
 
   document.getElementById("guesses").textContent += userGuess + " "; //add previous guessed number and a space between each guess
-
+  attemptsNum += 1;
   if (userGuess === randomNumber) {
     document.getElementById("lastResult").textContent = "Congrats, you got it right!";
     document.getElementById("lastResult").style.backgroundColor = "green";
+    document.getElementById("tooHighOrLow").textContent = "";
+    document.getElementById("attempt").textContent =
+      "You guessed it in " + attemptsNum + " guesses!";
     gameOver();
     //lastResult.style.backgroundColor = "green";
+  } else if (guessCount === 3) {
+    document.getElementById("lastResult").textContent = "Game over, you used all your tries";
+    document.getElementById("tooHighOrLow").textContent = "";
+    document.getElementById("attempt").textContent = "";
+    gameOver();
   } else {
     document.getElementById("lastResult").textContent = "Wrong number, guess again";
     document.getElementById("lastResult").style.backgroundColor = "red";
+
     if (userGuess > randomNumber) {
       document.getElementById("tooHighOrLow").textContent = "Last guess was too high!";
+      document.getElementById("attempt").textContent = "No. of guesses: " + attemptsNum;
     } else if (userGuess < randomNumber) {
       document.getElementById("tooHighOrLow").textContent = "Last guess was too low!";
+      document.getElementById("attempt").textContent = "No. of guesses: " + attemptsNum;
     }
   }
 
   guessCount++; //add 1 (increment) when the player uses their turn
+
   myInput.value = ""; //clear the submit field
   myInput.focus(); //focus back to the submit field
 }
@@ -53,6 +67,7 @@ function gameOver() {
 //reset the game by disable input and submitt button. Also reset previous guesses
 function resetGame() {
   guessCount = 1;
+  attemptsNum = 0;
   const resetResultGame = document.querySelectorAll(".resultGame p");
   for (const reGame of resetResultGame) {
     reGame.textContent = " ";
@@ -67,4 +82,4 @@ function resetGame() {
   randomNumber = Math.floor(Math.random() * 10) + 1;
 }
 
-console.log(randomNumber);
+//console.log(randomNumber);
