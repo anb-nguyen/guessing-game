@@ -25,12 +25,14 @@ function checkGuess() {
     document.getElementById("tooHighOrLow").textContent = "";
     document.getElementById("attempt").textContent =
       "You guessed it in " + attemptsNum + " guesses!";
+    document.getElementById("winImage").style.display = "block";
     gameOver();
     //lastResult.style.backgroundColor = "green";
   } else if (guessCount === 3) {
     document.getElementById("lastResult").textContent = "Game over, you used all your tries";
     document.getElementById("tooHighOrLow").textContent = "";
     document.getElementById("attempt").textContent = "";
+    document.getElementById("loseImage").style.display = "block";
     gameOver();
   } else {
     document.getElementById("lastResult").textContent = "Wrong number, guess again";
@@ -79,6 +81,8 @@ function resetGame() {
   guessSubmit.value = "";
   guessSubmit.focus();
   document.getElementById("lastResult").style.backgroundColor = "white";
+  document.getElementById("winImage").style.display = "none";
+  document.getElementById("loseImage").style.display = "none";
   randomNumber = Math.floor(Math.random() * 10) + 1;
 }
 

@@ -32,3 +32,17 @@ body {
   font-size: large;
   padding: 0 10px;
 }
+
+#winImage {
+  max-width: 50%;
+  height: auto;
+  display: none;
+  margin-bottom: 5px;
+}
+
+#loseImage {
+  max-width: auto;
+  height: 650px;
+  display: none;
+  margin-bottom: 5px;
+}
